@@ -1,33 +1,37 @@
 
-# Airbnb Rental Price Prediction API
+# Car Price Prediction API
 
-This is a Flask-based API that predicts Airbnb rental prices based on several factors like bedrooms, bathrooms, accommodation capacity, and neighborhood. The API has two main endpoints:
-- `/reload`: Reloads the data and trains the model.
-- `/predict`: Predicts the rental price for a given listing.
+This is a Flask-based API that predicts car selling prices based on various features such as manufacturing year, kilometers driven, fuel type, seller type, transmission, and ownership history.
+
+The API has two main endpoints:
+`/reload`: Loads the car dataset and trains the model.
+`/predict`: Predicts the selling price for a given car based on user input.
 
 ## Data Source and Prediction Process
 
 ### Data Source
 
-The data used for this project comes from the [Inside Airbnb dataset](https://insideairbnb.com/get-the-data/), which provides detailed information about Airbnb listings in various cities. For this particular app, the data for Boston, MA is used.
+The dataset used in this project comes from [Car Dekho](https://www.kaggle.com/datasets/nehalbirla/vehicle-dataset-from-cardekho?select=CAR+DETAILS+FROM+CAR+DEKHO.csv), which provides detailed information about used cars listed for sale. 
 
-The dataset includes important features such as:
-- **Price**: The rental price of the listing.
-- **Bedrooms**: The number of bedrooms in the listing.
-- **Bathrooms**: The number of bathrooms in the listing.
-- **Accommodates**: The maximum number of guests the listing can accommodate.
-- **Neighbourhood**: The neighborhood where the listing is located.
+The dataset includes key features such as:
+- **Selling Price**: The price at which the car was sold (Target Variable)
+- **Year**: The manufacturing year of the car
+- **Kilometers Driven**: Total distance the car has been driven
+- **Fuel Type**: Whether the car runs on Petrol, Diesel, or CNG
+- **Seller Type**: Whether the seller is an individual, dealer, or a trustmark dealer
+- **Transmission**: Whether the car is Manual or Automatic
+- **Owner**: First, Second, Third, or more ownership
 
-The full dataset can be accessed and downloaded from the Inside Airbnb website at [Inside Airbnb - Get the Data](https://insideairbnb.com/get-the-data/).
+The dataset file [CAR DETAILS FROM CAR DEKHO.csv](https://www.kaggle.com/datasets/nehalbirla/vehicle-dataset-from-cardekho?select=CAR+DETAILS+FROM+CAR+DEKHO.csv) is included in this repository.
 
 ### Prediction Process
 
-The application makes use of a simple **Linear Regression Model** to predict the rental price of an Airbnb listing based on various input features such as the number of bedrooms, bathrooms, accommodation capacity, and the neighborhood.
+The application makes use of a simple **Linear Regression Model** to predict the selling price of a car based on historical data in various input features such as pervious owners, type of transmission, seller type, fuel type, kilometers driven, and year.
 
 The process of prediction is as follows:
-1. **Data Preprocessing**: The data is cleaned and processed. Non-numeric values are removed or converted, and categorical variables like `neighbourhood` are one-hot encoded to make them suitable for machine learning models.
-2. **Model Training**: A linear regression model is trained on the cleaned dataset using features like bedrooms, bathrooms, accommodates, and one-hot encoded neighborhood values.
-3. **Prediction**: Once trained, the model can predict the rental price based on user input, such as the number of bedrooms, bathrooms, and neighborhood.
+1. **Data Preprocessing**: The data is cleaned and processed. Non-numeric values are removed or converted, and categorical variables are one-hot encoded to make them suitable for machine learning models.
+2. **Model Training**: A linear regression model is trained using car attributes like year, kilometers driven, fuel type, seller type, transmission, and ownership history.
+3. **Prediction**: Once trained, the model can predict a car's selling price based on user input.
 
 By using this model, the app can provide quick rental price predictions for Airbnb listings in Boston based on historical data.
 
