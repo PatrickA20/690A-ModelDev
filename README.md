@@ -45,8 +45,8 @@ Before you can set up and run this app, ensure you have the following software i
 ### 1. Clone the Repository
 First, clone this repository to your local machine:
 ```bash
-git clone https://github.com/tjhoranumass/airbnb.git
-cd airbnb
+git clone https://github.com/PatrickA20/690A-ModelDev.git
+cd 690A-ModelDev
 ```
 
 ### 2. Create a Virtual Environment (Optional but Recommended)
@@ -116,17 +116,18 @@ exit()
 Once everything is set up, you can run the application with the following command:
 
 ```bash
-flask run
+flask run --debug --port=5001
 ```
 
-By default, the app will run on [http://127.0.0.1:5000](http://127.0.0.1:5000).
+I changed the port from it's default because it was causing trouble and errors. 
+The app will run on [http://127.0.0.1:5001/apidocs/#/](http://127.0.0.1:5001/apidocs/#/).
 
 ### 7. Swagger Documentation
 
 You can access the Swagger documentation for the API at:
 
 ```
-http://127.0.0.1:5000/apidocs/
+http://127.0.0.1:5001/apidocs/
 ```
 
 ### 8. Testing the Endpoints
@@ -136,7 +137,7 @@ http://127.0.0.1:5000/apidocs/
 To reload the data and train the model, use the `/reload` endpoint:
 
 ```bash
-curl -X POST http://127.0.0.1:5000/reload
+curl -X POST http://127.0.0.1:5001/reload
 ```
 
 #### Predict Price
@@ -144,13 +145,13 @@ curl -X POST http://127.0.0.1:5000/reload
 To predict a rental price, you can use the `/predict` endpoint. Here's an example request:
 
 ```bash
-curl -X POST http://127.0.0.1:5000/predict \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "bedrooms": 2,
-    "bathrooms": 1.5,
-    "accommodates": 4,
-    "neighbourhood_cleansed": "South Boston"
+curl -X POST "http://127.0.0.1:5001/predict" -H "Content-Type: application/json" -d '{
+  "year": 2015,
+  "km_driven": 50000,
+  "fuel": "Petrol",
+  "seller_type": "Individual",
+  "transmission": "Manual",
+  "owner": "First Owner"
 }'
 ```
 
