@@ -161,7 +161,7 @@ def predict():
     global model, encoder  # Ensure that the encoder and model are available for prediction
     
     # Check if the model and encoder are initialized
-        if model is None or encoder is None:
+    if model is None or encoder is None:
         return jsonify({"error": "The data has not been loaded. Please refresh the data by calling the '/reload' endpoint first."}), 400
 
     data = request.json
