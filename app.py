@@ -12,6 +12,8 @@ from flasgger import Swagger
 
 app = Flask(__name__)
 
+CSV_FILE = "CAR DETAILS FROM CAR DEKHO.csv"
+
 # Swagger config
 app.config['SWAGGER'] = {
     'title': 'Car Price Prediction API',
