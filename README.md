@@ -4,7 +4,9 @@
 This is a Flask-based API that predicts car selling prices based on various features such as manufacturing year, kilometers driven, fuel type, seller type, transmission, and ownership history.
 
 The API has two main endpoints:
+
 `/reload`: Loads the car dataset and trains the model.
+
 `/predict`: Predicts the selling price for a given car based on user input.
 
 ## Data Source and Prediction Process
