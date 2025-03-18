@@ -9,6 +9,7 @@ import requests
 import gzip
 from io import BytesIO
 from flasgger import Swagger
+import os
 
 app = Flask(__name__)
 
