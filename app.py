@@ -55,7 +55,7 @@ def preprocess_data(df):
         df[col] = df[col].fillna(df[col].mode()[0])
 
     # One-hot encode categorical columns
-    encoder = OneHotEncoder(sparse_output=False, drop='first')  # Drop first to avoid multicollinearity
+    encoder = OneHotEncoder(sparse_output=False, drop='first')
     encoded_features = encoder.fit_transform(df[categorical_cols])
 
     # Create a DataFrame for the one-hot encoded categorical variables
@@ -123,12 +123,12 @@ def reload_data():
 
     # Step 6: Generate summary statistics
     summary = {
-        'total_cars': len(df),
-        'average_price': df['selling_price'].mean(),
-        'min_price': df['selling_price'].min(),
-        'max_price': df['selling_price'].max(),
-        'average_year': df['year'].mean(),
-        'average_km_driven': df['km_driven'].mean(),
+        'total_cars': int(len(df)),
+        'average_price': float(df['selling_price'].mean()),
+        'min_price': int(df['selling_price'].min()),
+        'max_price': int(df['selling_price'].max()),
+        'average_year': int(df['year'].mean()),
+        'average_km_driven': int(df['km_driven'].mean()),
         'top_fuel_types': df['fuel'].value_counts().head().to_dict()
     }
 
