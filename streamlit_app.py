@@ -15,15 +15,13 @@ fuel = st.sidebar.selectbox("Fuel Type", sorted(df['fuel'].dropna().unique()))
 seller = st.sidebar.selectbox("Seller Type", sorted(df['seller_type'].dropna().unique()))
 transmission = st.sidebar.selectbox("Transmission", sorted(df['transmission'].dropna().unique()))
 owner = st.sidebar.selectbox("Owner", sorted(df['owner'].dropna().unique()))
-year = st.sidebar.selectbox("Manufacturing Year", sorted(df['year'].dropna().unique(), reverse=True))
 
 # Filter the data
 filtered_df = df[
     (df['fuel'] == fuel) &
     (df['seller_type'] == seller) &
     (df['transmission'] == transmission) &
-    (df['owner'] == owner) &
-    (df['year'] == year)
+    (df['owner'] == owner)
 ]
 
 # Show filtered chart
