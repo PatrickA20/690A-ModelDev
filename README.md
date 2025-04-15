@@ -46,6 +46,12 @@ Before you can set up and run this app, ensure you have the following software i
 - **pip** (Python package installer)
 - **Virtualenv** (Optional but recommended)
 
+## Streamlit App
+
+Here is the link for the streamlit app.
+
+https://690a-modeldev.streamlit.app
+
 ## Setting up on macOS and Windows
 
 ### 1. Clone the Repository
