@@ -10,7 +10,7 @@ def load_data():
 df = load_data()
 
 # Sidebar filters
-st.sidebar.header("🔍 Filter Options")
+st.sidebar.header("Filter Options")
 fuel = st.sidebar.selectbox("Fuel Type", sorted(df['fuel'].dropna().unique()))
 seller = st.sidebar.selectbox("Seller Type", sorted(df['seller_type'].dropna().unique()))
 transmission = st.sidebar.selectbox("Transmission", sorted(df['transmission'].dropna().unique()))
@@ -25,7 +25,7 @@ filtered_df = df[
 ]
 
 # Show filtered chart
-st.title("🚗 Car Price Explorer")
+st.title("Car Price Explorer")
 st.subheader(f"Price Distribution for Selected Filters")
 
 fig, ax = plt.subplots()
@@ -35,9 +35,8 @@ ax.set_ylabel("Number of Cars")
 st.pyplot(fig)
 
 # Show data summary
-st.markdown("### 📊 Summary Stats")
+st.markdown("### Summary Stats")
 st.write(filtered_df['selling_price'].describe())
 
-# Show data table if checked
-if st.checkbox("Show data table"):
-    st.dataframe(filtered_df)
+st.markdown("### Filtered Data Table")
+st.dataframe(filtered_df)
